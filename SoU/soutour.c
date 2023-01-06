@@ -7,6 +7,7 @@ Main menu
 
 */
 #include<stdio.h>
+#define __USE_XOPEN
 #include <time.h>
 #include<string.h>
 void helpSupportHINDI();
