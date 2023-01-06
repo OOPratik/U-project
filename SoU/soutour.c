@@ -7,43 +7,49 @@ Main menu
 
 */
 #include<stdio.h>
+#include <time.h>
 #include<string.h>
 void helpSupportHINDI();
 void helpSupportENGLISH();
 void bookTicketsHINDI();
 void bookTicketsENGLISH();
-void aboutSoUHINDI();
-void aboutSoUENGLISH();
+void aboutStatueofUnityHINDI();
+void aboutStatueofUnityENGLISH();
 void mainmenuHINDI();
 void mainmenuENGLISH();
 // Function to handle ticket bookings in Hindi
 void bookTicketsHINDI()
 {
-  int day;
   int persons;
-  int priseperseat=3000;
+  int priseperseat=1500;
   int booking;
   int billings;
+   char date[11];
+   struct tm time_info;
 
-  printf("Kripya date aur time daalen:\n");
-  scanf("%d", &day);
-  if (day == 1) {
-    printf("Maafi hai, somvaar off-day hai. Kripya doosra din chunen.\n");
-  } else {
+   printf("Kripya date daalen format dd/mm/yyyy: ");
+   scanf("%s", date);
+
+   strptime(date, "%d/%m/%Y", &time_info);
+
+   if (time_info.tm_wday == 1) {
+      printf("Maafi hai, somvaar off-day hai. Kripya doosra din chunen.\n");
+   } else {
     printf("Kripya logon ki sankhya daalen:\n");
     scanf("%d", &persons);
     printf("Aapka booking confirm ho gaya hai.\n");
     printf("Aapka bill Rs.%d hai.\n", persons * priseperseat);
-  }
+  
+        }
 }
 // Function to display information about SoU in Hindi
-void aboutSoUHINDI()
+void aboutStatueofUnityHINDI()
 {
   int place;
 
   printf("SoU ek sundar jagah hai jismein bahut saare anokhe sthan hain jo dekhne ke liye achche hain.\n");
   printf("Yahaan kuchh hamare top recommendations hain:\n");
-  printf("1. Museum\n");
+  printf("1. Musemum\n");
   printf("2. Park\n");
   printf("3. Art gallery\n");
   printf("Aap kaun sa sthan jaanna chahte hain?\n");
@@ -56,7 +62,7 @@ void aboutSoUHINDI()
     printf("Art gallery ek achcha sthan hai jahaan aap desh ke aur videsh ke kalaakaaron ke kai prakaar ke paintings, sculptures, aur doosre kalaakaaritaayon ko dekh sakte hain.\n");
   } else {
     printf("Galat chunaav.\n");
-    aboutSoUHINDI();
+    aboutStatueofUnityHINDI();
   }
 }
 // Function to provide help and support in Hindi
@@ -66,11 +72,11 @@ void helpSupportHINDI()
   // Provide help and support based on the user's question
 }
 // Function to display information about SoU in English
-void aboutSoUENGLISH()
+void aboutStatueofUnityENGLISH()
 {
   int place;
 
-  printf("SoU is a beautiful place with many interesting places to visit.\n");
+  printf("Statue of Unity is a beautiful place with many interesting places to visit.\n");
   printf("Here are some of our top recommendations:\n");
   printf("1. Museum\n");
   printf("2. Park\n");
@@ -85,7 +91,7 @@ void aboutSoUENGLISH()
   printf("The art gallery is a great place to see various types of paintings, sculptures, and other artworks by local and international artists.\n");
   } else {
   printf("Invalid selection.\n");
-  aboutSoUENGLISH();
+  aboutStatueofUnityENGLISH();
   }
 }
 // Function to handle ticket bookings in English
@@ -93,20 +99,27 @@ void bookTicketsENGLISH()
 {
   int day;
   int persons;
-  int priseperseat;
+  int priceperseat=1500;
   int booking;
   int billings;
 
-  printf("Please enter the date and time:\n");
-  scanf("%d", &day);
-  if (day == 1) {
-    printf("Sorry, Monday is an off-day. Please select a different day.\n");
-  } else {
+    char date[11];
+   struct tm time_info;
+
+   printf("Please enter the Date format dd/mm/yyyy: ");
+   scanf("%s", date);
+
+   strptime(date, "%d/%m/%Y", &time_info);
+
+   if (time_info.tm_wday == 1) {
+      printf("Sorry, Monday is an off-day. Please select a different day.\n");
+   } else {
     printf("Please enter the number of persons:\n");
     scanf("%d", &persons);
-    printf("Your booking has been confirmed.\n");
-    printf("Your bill is $%d.\n", persons * priseperseat);
+    printf("Your bill is ? %d.\n", persons*priceperseat);
+      printf("Your booking has been confirmed.\n");
   }
+
 }
 // Function to display the main menu in English
 void mainmenuENGLISH()
@@ -114,10 +127,10 @@ void mainmenuENGLISH()
   int option;
 
   // Display the main menu in English
-  printf("WELCOME to the booking facility of SoU!!\n");
+  printf("WELCOME to the booking facility of Statue of Unity!!\n");
   printf("Please select an option from the main menu:\n");
   printf("1. Book tickets\n");
-  printf("2. About SoU\n");
+  printf("2. About Statue of Unity\n");
   printf("3. Help & support\n");
   scanf("%d", &option);
 
@@ -127,7 +140,7 @@ void mainmenuENGLISH()
       bookTicketsENGLISH();
       break;
     case 2:
-      aboutSoUENGLISH();
+      aboutStatueofUnityENGLISH();
       break;
     case 3:
       helpSupportENGLISH();
@@ -151,7 +164,7 @@ void mainmenuHINDI()
   int option;
 
   // Display the main menu in Hindi
-  printf("SoU ke ticket booking kedra me aap ka swagat hai!!\n");
+  printf("Statue of Unity ke ticket booking kedra me aap ka swagat hai!!\n");
   printf("Mukhya menu mein se koi ek option chunen:\n");
   printf("1. Ticket book karen\n");
   printf("2. SoU ke bare mein jaankari\n");
@@ -164,7 +177,7 @@ void mainmenuHINDI()
       bookTicketsHINDI();
       break;
     case 2:
-      aboutSoUHINDI();
+      aboutStatueofUnityHINDI();
       break;
     case 3:
       helpSupportHINDI();
