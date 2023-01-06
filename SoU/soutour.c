@@ -1,7 +1,7 @@
 /* FLOW CHART
 Main menu
     1->language
-      i   ->Book Tickets    ->Date&Time (condition monday is off-day)     ->NumberOfPersons ->Listing->Booking->Billings
+      i   ->Book Tickets    ->Date&Time (condition monday is off-day)     ->NumberOfPersons ->Booking
       ii  ->About SoU       ->Places to visit->about the places
       iii ->Help & Support
 
